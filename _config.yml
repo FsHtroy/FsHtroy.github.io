@@ -17,8 +17,8 @@ cover_color: slate
 
 # The blog button should not be removed.
 blog_button:
-    title: Blog
-    description: Visit blog
+    title: Article
+    description: Visit Article
 
 # Navigation buttons in the front page.
 nav:
