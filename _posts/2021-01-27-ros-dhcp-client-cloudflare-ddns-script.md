@@ -47,6 +47,4 @@ Update:2023.09.15 由于广东电信新上线13.0.0.0/8网段，先简单魔改�
 欢迎在我的github page的issue区探讨一下更好的实现方式
 [https://github.com/FsHtroy/FsHtroy.github.io/issues](https://github.com/FsHtroy/FsHtroy.github.io/issues)
 
-Update:2023.
-
 2021.01.27(Update:2023.09.15)
