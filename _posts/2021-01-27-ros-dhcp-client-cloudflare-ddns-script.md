@@ -5,12 +5,16 @@ tags: []
 category: 
 ---
 分享一下根据网上+自己小改 适用于RouterOS 更新vlan46网络IP在Cloudflare解析的脚本(好拗口，语文不好)，也就是vlan46的DDNS脚本
+
+Update:2023.09.15 由于广东电信新上线13.0.0.0/8网段，先简单魔改一下
+
 ```
 {
    :local count [/ip route print count-only where comment="ct-tr069-route"]
    :if ($bound=1) do={
        :if ($count = 0) do={
             /ip route add gateway=$"gateway-address" comment="ct-tr069-route" dst-address=10.0.0.0/7 distance=10
+            /ip route add gateway=$"gateway-address" comment="ct-tr069-route-13" dst-address=13.0.0.0/8 distance=10
         } else={
            :if ($count = 1) do={
                :local test [/ip route find where comment="ct-tr069-route"]
@@ -24,6 +28,7 @@ category:
         /tool fetch mode=https http-method=put url="https://api.cloudflare.com/client/v4/zones/****你的zone ID***/dns_records/****你的记录ID****" http-header-field="content-type:application/json,X-Auth-Email:****cf的邮箱****,X-Auth-Key:****cf的key****" http-data="{\"type\":\"A\",\"name\":\"****域名****\",\"content\":\"$"lease-address"\",\"ttl\":120,\"proxied\":false}" output=none
     } else={
         /ip route remove [find comment="ct-tr069-route"]
+        /ip route remove [find comment="ct-tr069-route-13"]
     }
 }
 ```
@@ -42,4 +47,6 @@ category:
 欢迎在我的github page的issue区探讨一下更好的实现方式
 [https://github.com/FsHtroy/FsHtroy.github.io/issues](https://github.com/FsHtroy/FsHtroy.github.io/issues)
 
-2021.01.27
+Update:2023.
+
+2021.01.27(Update:2023.09.15)
