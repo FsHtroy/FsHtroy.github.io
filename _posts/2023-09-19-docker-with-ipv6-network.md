@@ -98,5 +98,5 @@ systemctl enable ndppd.service
 
 这里的ipv6因为没有运营商给你的地址块，只能用fd00::/8了，加上"ip6tables": true和"experimental": true，开启ipv6的nat
 
-**这种玩法需要通过docker-proxy去nat，或者你可以自己想别的办法映射到外网ip去**
+**这种玩法需要通过docker-proxy去nat，或者你可以自己想别的办法映射到外网ip去**  
 2023.09.15
