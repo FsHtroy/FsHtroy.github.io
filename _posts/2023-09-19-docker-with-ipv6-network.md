@@ -65,10 +65,10 @@ systemctl enable ndppd.service
 }
 ```
 
-这里的ipv6有两种玩法，假设运营商给你的是aabb:ccdd:114:514::/64
-0.docker貌似要求最小/80
-1.fixed-cidr-v6直接给他整一段服务商给你的地址块，比如aabb:ccdd:114:514:1919::/80，然后你的docker跑在默认的bridge网络下的就会拿到这里面的地址。如果要指定ip的，再抠一段出来自己搞network
-2.fixed-cidr-v6给他整一段私有地址，fd00::/8，但是不用默认的bridge，自己建一个新的network，整段拿进去用
+这里的ipv6有两种玩法，假设运营商给你的是aabb:ccdd:114:514::/64  
+0.docker貌似要求最小/80  
+1.fixed-cidr-v6直接给他整一段服务商给你的地址块，比如aabb:ccdd:114:514:1919::/80，然后你的docker跑在默认的bridge网络下的就会拿到这里面的地址。如果要指定ip的，再抠一段出来自己搞network  
+2.fixed-cidr-v6给他整一段私有地址，fd00::/8，但是不用默认的bridge，自己建一个新的network，整段拿进去用  
 
 **这种玩法相当于把整个容器暴露在公网，自己想办法防护**
 
