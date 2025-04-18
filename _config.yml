@@ -23,6 +23,7 @@ blog_button:
 # Navigation buttons in the front page.
 nav:
     - {title: Github, description: Go to my Github, url: 'https://github.com/FsHtroy'}
+    - {title: AS139216, description: Go to my AS139216.network, url: 'https://home.139216.network/'}
 
 # Pagination
 gems: [jekyll-paginate]
